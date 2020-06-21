@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>ESMAD Session</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Font-->
+    <link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+    <!-- Costum CSS -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Chart JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <!--Axios-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+    <h1 class="title">Demonstration Arduino API Security4All</h1>
+    <img src="assets/imgs/logo.png" class="img-thumbnail img-fluid rounded mx-auto d-block w-25 p-3" alt="Banner">
+
+    <div class="content">
+        <p>
+            <div class="form-group">
+                <label for="sel1">Select house: (by ZipCode)</label>
+                <select class="form-control" id="sel1" onchange="createTable()">
+                    //Função para por todas as casas
+                </select>
+              </div>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#listRecords"
+                aria-expanded="false" aria-controls="listRecords" onclick="createTable()">
+                View/All Sensors
+            </button>
+            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#openTextArea"
+            aria-expanded="false" aria-controls="openTextArea" onclick="createRecords()">
+                View Records
+            </button>
+            <button class="btn btn-primary" type="button"  onclick="startListeningArduino()">
+                Read Sensors
+            </button>
+            <button class="btn btn-primary" type="button" onclick="closeArduinoConnection()">
+                Close Arduino Port
+            </button>
+            <button class="btn btn-primary" type="button" onclick="deleteAllRecords()">
+                Delete All Records
+            </button>
+        </p>
+        <div class="collapse" id="listRecords">
+            <div class="card card-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">IdSensor</th>
+                            <th scope="col">IdHouse</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Division</th>
+                            <th scope="col">IdSpace</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="sensors">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="collapse" id="openTextArea">
+            <div class="card card-body">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">IdSensor</th>
+                            <th scope="col">IdSpace</th>
+                            <th scope="col">zipCode</th>
+                            <th scope="col">value</th>
+                            <th scope="col">date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="records">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!--
+        <div class="collapse" id="openTextArea">
+            <div class="card card-body">
+                <label for="arduinoTA">Arduino Inputs</label>
+                <textarea id="arduinoTA">
+
+                </textarea>
+            </div>
+        </div>
+        -->
+    </div>
+
+</body>
+
+</html>
